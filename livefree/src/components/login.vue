@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-      <button type="button" class="btn btn-primary btn-lg btn-block">Login to view Price</button>
+      <button type="button" class="btn btn-primary btn-lg">Login to view Price</button>
   </div>
 </template>
 

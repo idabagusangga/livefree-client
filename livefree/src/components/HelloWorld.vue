@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-
+        
           <div class="jumbotron">
               <h1 class="text-warning">Find Your Neighborhood</h1>
               <p class="text-warning">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -11,10 +11,18 @@
               </p>
           </div>
           
-          
-          <div class="">
-              <login/>
+          <div class="container">
+              <div>
+                  <login/>
+                  
+              </div>
+              <br>
+              
+              <div class="">
+                  <FBlogin/>
+              </div>
           </div>
+          
           
           <br>
           
@@ -22,7 +30,6 @@
              <!-- looped later -->
               <rumah/> 
          </div>
-            
           
       
   </div>
@@ -31,6 +38,7 @@
 <script>
 import rumah from './rumah'
 import login from './login'
+import facebook from './facebook'
 export default {
 
   name: 'HelloWorld',
@@ -41,9 +49,11 @@ export default {
   },
   components : {
       rumah : rumah,
-      login : login
+      login : login,
+      FBlogin:facebook
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
