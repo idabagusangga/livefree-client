@@ -2,7 +2,7 @@
   <div class="hello">
         
           <div class="jumbotron">
-              <h1 class="text-warning">Find Your Neighborhood</h1>
+              <h1 class="text-warning">C A S T L E  H U N T E R</h1>
               <p class="text-warning">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
               <hr class="my-4">
               <p class="text-warning">It uses utility classes for typography and spacing to space content out within the larger container.</p>
@@ -27,8 +27,7 @@
           <br>
           
          <div class="row">
-             <!-- looped later -->
-              <rumah/> 
+              <rumah v-for="h in houses" :house='h'/> 
          </div>
           
       
@@ -39,18 +38,33 @@
 import rumah from './rumah'
 import login from './login'
 import facebook from './facebook'
+import axios from 'axios'
 export default {
 
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      houses    : []
     }
   },
   components : {
       rumah : rumah,
       login : login,
       FBlogin:facebook
+  },
+  mounted: function(){
+    this.getHouses()  
+  },
+  methods   : {
+      getHouses(){
+          axios.get('http://localhost:3000/api/house') //test without token
+          .then(response=>{
+              this.houses = response.data.houses
+          })
+          .catch(err=>{
+              console.log(err);
+          })
+      }
   }
 }
 
